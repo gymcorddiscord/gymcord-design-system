@@ -1,0 +1,48 @@
+## Gymcord Design System — conventions
+
+This is a **dark-theme-only** system for Gymcord Fantasy, a fantasy NCAA women's gymnastics app. There is no light mode and no theme provider — components read design tokens directly from CSS custom properties, so nothing needs to be wrapped in a provider. But every component assumes it sits on a dark surface (`var(--bg-0)` or `var(--bg-1)`): text, borders, and icon strokes are colored for a dark background and will look wrong or invisible on white. **Always give the outermost element of a build a dark background** — e.g. `<div style={{ background: 'var(--bg-0)', minHeight: '100vh' }}>` — before placing components inside it.
+
+### Styling idiom: CSS custom properties, not utility classes
+
+Components ship their own scoped CSS and read colors/spacing from tokens defined in `styles.css` (bound copy: `tokens/tokens.css`). When you need to style your own layout glue (page backgrounds, spacing between components), use these tokens via `var(--token-name)` — never hardcode hex values or invent new class names.
+
+**Surfaces** (near-black, cool violet undertone — darkest to lightest): `--bg-0`, `--bg-1`, `--bg-2`, `--bg-3`
+**Text**: `--text-primary`, `--text-secondary`, `--text-tertiary`
+**Borders**: `--border-subtle`, `--border-default`
+**Brand**: `--brand-primary` (teal, the primary accent — active tabs, primary buttons), `--brand-primary-hover`, `--brand-secondary` (purple — secondary accents, the feedback FAB), `--brand-secondary-hover`
+**Spectrum** (discipline tags, data viz, prismatic gradients): `--spectrum-orange`, `--spectrum-yellow`, `--spectrum-green`, `--spectrum-teal`, `--spectrum-blue`, `--spectrum-violet`, and `--spectrum-gradient` (the full-spectrum gradient used by the prismatic rank tier)
+**Semantic**: `--success` (green), `--warning` (yellow), `--danger` (orange), `--info` (blue). **`--injury-long-term` (red) is reserved exclusively for long-term injury status — never use red for anything else (errors, warnings, deletes, etc. all use `--danger` orange instead).**
+**Rank tiers**: `--tier-bronze`, `--tier-silver`, `--tier-gold`, `--tier-prismatic`
+**Radius**: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill` (use `--radius-pill` for primary CTA buttons and nav segments — always a **solid** fill, never a gradient, on large pill-shaped buttons; a gradient fill on a fully-rounded large pill produces a visible rendering artifact at the edge)
+**Font**: `--font-family` resolves to M PLUS 1p (loaded via a remote Google Fonts `@import` already in `styles.css` — no local font files to manage)
+
+### Where the truth lives
+
+Read `styles.css` and its imported `tokens/tokens.css` before styling anything — they're the real compiled source, not a summary. Each component's own usage guidance and prop contract is in its `<Name>.prompt.md` and `<Name>.d.ts` alongside it.
+
+### Idiomatic build snippet
+
+```tsx
+import { AppHeader, AthleteTable, Button, HomeAwayBadge } from 'gymcord-design-system'
+
+function LineupsPage() {
+  return (
+    <div style={{ background: 'var(--bg-0)', minHeight: '100vh' }}>
+      <AppHeader
+        teamName="Precision Flyers"
+        leagueName="Elite Squad League"
+        weekLabel="Week 3"
+        weekStatusLabel="CURRENT"
+        activeTab="lineups"
+      />
+      <div style={{ padding: 24 }}>
+        <Button variant="primary">Save Lineup</Button>
+        <AthleteTable
+          columns={[{ key: 'VT', caption: '0/10' }]}
+          rows={[{ id: 'a', name: 'Haleigh Bryant', team: 'LSU', badges: <HomeAwayBadge type="home" />, scores: { VT: 9.938 } }]}
+        />
+      </div>
+    </div>
+  )
+}
+```

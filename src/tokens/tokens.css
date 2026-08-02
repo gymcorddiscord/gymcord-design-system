@@ -1,0 +1,68 @@
+/**
+ * Gymcord Fantasy design tokens.
+ */
+:root {
+  /* Font */
+  --font-family: 'M PLUS 1p', Arial, Helvetica, sans-serif;
+
+  /* Surfaces — near-black cool violet, bg-0 darkest to bg-3 lightest */
+  --bg-0: #0a0a13;
+  --bg-1: #131320;
+  --bg-2: #1c1c2e;
+  --bg-3: #27273d;
+
+  /* Text */
+  --text-primary: #f5f5fa;
+  --text-secondary: #a3a3bf;
+  --text-tertiary: #6e6e8f;
+
+  /* Border */
+  --border-subtle: #2a2a42;
+  --border-default: #35354f;
+
+  /* Brand */
+  --brand-primary: #22d3ee;
+  --brand-primary-hover: #06b6d4;
+  --brand-secondary: #8b5cf6;
+  --brand-secondary-hover: #7c3aed;
+
+  /* Spectrum — used for discipline tags, data viz, prismatic gradients */
+  --spectrum-orange: #fb923c;
+  --spectrum-yellow: #fbbf24;
+  --spectrum-green: #34d399;
+  --spectrum-teal: #2dd4bf;
+  --spectrum-blue: #3b82f6;
+  --spectrum-violet: #8b5cf6;
+  --spectrum-gradient: linear-gradient(
+    100deg,
+    var(--spectrum-orange) 0%,
+    var(--spectrum-yellow) 20%,
+    var(--spectrum-green) 40%,
+    var(--spectrum-teal) 60%,
+    var(--spectrum-blue) 80%,
+    var(--spectrum-violet) 100%
+  );
+
+  /* Semantic — red is reserved exclusively for long-term injury, never generic error */
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #fb923c;
+  --info: #3b82f6;
+  --injury-long-term: #ef4444;
+
+  /* Rank tiers */
+  --tier-bronze: #cd7f32;
+  --tier-silver: #c0c6d1;
+  --tier-gold: #f5c542;
+  --tier-prismatic: var(--spectrum-gradient);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+}

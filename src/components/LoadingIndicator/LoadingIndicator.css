@@ -1,0 +1,38 @@
+.gds-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.gds-loading__spinner {
+  border-radius: 50%;
+  border: 3px solid var(--bg-3);
+  border-top-color: var(--brand-primary);
+  animation: gds-spin 0.8s linear infinite;
+}
+
+.gds-loading--lg .gds-loading__spinner {
+  width: 22px;
+  height: 22px;
+}
+.gds-loading--lg .gds-loading__text {
+  font-size: 15px;
+}
+
+.gds-loading--sm .gds-loading__spinner {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+.gds-loading--sm .gds-loading__text {
+  font-size: 12px;
+}
+
+@keyframes gds-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

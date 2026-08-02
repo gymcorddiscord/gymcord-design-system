@@ -1,0 +1,15 @@
+{
+  "pkg": "gymcord-design-system",
+  "globalName": "GymcordDS",
+  "projectId": "e615efce-c52a-44d1-995f-c62cf77c2b2d",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/style.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "AppHeader": { "cardMode": "column" },
+    "AthleteTable": { "cardMode": "column" },
+    "SegmentedToggle": { "cardMode": "column" },
+    "FeedbackButton": { "cardMode": "single", "primaryStory": "Default" }
+  }
+}

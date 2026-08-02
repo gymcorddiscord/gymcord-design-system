@@ -1,0 +1,47 @@
+.gds-segmented {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-2);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 2px;
+}
+
+.gds-segmented__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.gds-segmented__item--active {
+  background: var(--brand-primary);
+  color: var(--bg-0);
+}
+
+.gds-segmented__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* lg: primary navigation — large click targets */
+.gds-segmented--lg .gds-segmented__item {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 15px;
+}
+
+/* sm: compact metric toggles */
+.gds-segmented--sm .gds-segmented__item {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+}
