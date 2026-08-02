@@ -17,15 +17,17 @@ export interface LoggedOutHeaderProps {
 export function LoggedOutHeader({ theme, onThemeToggle, onLogIn, onSignUp }: LoggedOutHeaderProps) {
   return (
     <header className="gds-app-header">
-      <Logo />
-      <div className="gds-app-header__actions gds-logged-out-header__actions">
-        {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
-        <Button variant="secondary" onClick={onLogIn}>
-          Log in
-        </Button>
-        <Button variant="primary" onClick={onSignUp}>
-          Sign Up
-        </Button>
+      <div className="gds-app-header__row">
+        <Logo />
+        <div className="gds-app-header__actions gds-logged-out-header__actions">
+          {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
+          <Button variant="secondary" onClick={onLogIn}>
+            Log in
+          </Button>
+          <Button variant="primary" onClick={onSignUp}>
+            Sign Up
+          </Button>
+        </div>
       </div>
     </header>
   )

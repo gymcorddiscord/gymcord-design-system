@@ -1,16 +1,28 @@
+/* Full-bleed bar — always spans the viewport. Consuming apps that want the
+   header's content aligned to a narrower content column (matching their
+   page width) should constrain .gds-app-header__row, not this element —
+   overriding max-width here would shrink the background/border along with
+   the content instead of just centering the content within a full-width
+   bar. */
 .gds-app-header {
   display: flex;
-  align-items: center;
-  gap: 24px;
+  justify-content: center;
   width: 100%;
   height: 72px;
-  padding: 0 24px;
   background: var(--bg-1);
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-family);
   box-sizing: border-box;
 }
-.gds-app-header--standard {
+.gds-app-header__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+.gds-app-header__row.gds-app-header--standard {
   justify-content: space-between;
 }
 

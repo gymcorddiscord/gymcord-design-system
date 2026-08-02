@@ -98,58 +98,62 @@ export function AppHeader({
 
   if (isStandard) {
     return (
-      <header className="gds-app-header gds-app-header--standard">
-        <Logo />
-        {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
+      <header className="gds-app-header">
+        <div className="gds-app-header__row gds-app-header--standard">
+          <Logo />
+          {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
+        </div>
       </header>
     )
   }
 
   return (
     <header className="gds-app-header">
-      <Logo />
-      {leagues && leagues.length > 0 && activeLeagueId ? (
-        <LeagueSwitcher leagues={leagues} activeLeagueId={activeLeagueId} onChange={onLeagueChange} />
-      ) : null}
-      <WeekNavigator
-        weekLabel={isPreseason ? 'Preseason' : (weekLabel ?? '')}
-        statusLabel={isPreseason ? undefined : weekStatusLabel}
-        onPrev={onPrevWeek}
-        onNext={onNextWeek}
-        prevDisabled={prevWeekDisabled}
-        nextDisabled={isPreseason ? true : nextWeekDisabled}
-        hideArrows={isPreseason}
-      />
-      <div className="gds-app-header__tabs">
-        <SegmentedToggle options={isPreseason ? PRESEASON_TABS : SEASON_TABS} value={activeTab} onChange={onTabChange} size="lg" />
-      </div>
-      <div className="gds-app-header__actions">
-        {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
-        <div className="gds-dropdown" ref={accountRef}>
-          <button
-            type="button"
-            className="gds-app-header__account"
-            aria-label="Account"
-            aria-expanded={accountMenuOpen}
-            onClick={() => setAccountMenuOpen((o) => !o)}
-          >
-            <UserCircleIcon size={26} />
-          </button>
-          {accountMenuOpen ? (
-            <div className="gds-dropdown__menu gds-app-header__account-menu" role="menu">
-              <button
-                type="button"
-                role="menuitem"
-                className="gds-dropdown__item"
-                onClick={() => {
-                  setAccountMenuOpen(false)
-                  onLogOut?.()
-                }}
-              >
-                Log out
-              </button>
-            </div>
-          ) : null}
+      <div className="gds-app-header__row">
+        <Logo />
+        {leagues && leagues.length > 0 && activeLeagueId ? (
+          <LeagueSwitcher leagues={leagues} activeLeagueId={activeLeagueId} onChange={onLeagueChange} />
+        ) : null}
+        <WeekNavigator
+          weekLabel={isPreseason ? 'Preseason' : (weekLabel ?? '')}
+          statusLabel={isPreseason ? undefined : weekStatusLabel}
+          onPrev={onPrevWeek}
+          onNext={onNextWeek}
+          prevDisabled={prevWeekDisabled}
+          nextDisabled={isPreseason ? true : nextWeekDisabled}
+          hideArrows={isPreseason}
+        />
+        <div className="gds-app-header__tabs">
+          <SegmentedToggle options={isPreseason ? PRESEASON_TABS : SEASON_TABS} value={activeTab} onChange={onTabChange} size="lg" />
+        </div>
+        <div className="gds-app-header__actions">
+          {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
+          <div className="gds-dropdown" ref={accountRef}>
+            <button
+              type="button"
+              className="gds-app-header__account"
+              aria-label="Account"
+              aria-expanded={accountMenuOpen}
+              onClick={() => setAccountMenuOpen((o) => !o)}
+            >
+              <UserCircleIcon size={26} />
+            </button>
+            {accountMenuOpen ? (
+              <div className="gds-dropdown__menu gds-app-header__account-menu" role="menu">
+                <button
+                  type="button"
+                  role="menuitem"
+                  className="gds-dropdown__item"
+                  onClick={() => {
+                    setAccountMenuOpen(false)
+                    onLogOut?.()
+                  }}
+                >
+                  Log out
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </header>
