@@ -17,11 +17,12 @@
   flex-shrink: 0;
 }
 .gds-logo__mark {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-md);
-  background: var(--spectrum-gradient);
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  object-fit: cover;
   display: inline-block;
+  flex-shrink: 0;
 }
 .gds-logo__wordmark {
   font-weight: 700;

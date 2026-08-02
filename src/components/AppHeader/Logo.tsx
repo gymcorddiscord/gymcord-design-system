@@ -1,13 +1,15 @@
+import { GYMCORD_LOGO_96 } from '../../assets/gymcordLogo'
+
 export interface LogoProps {
   /** Defaults to "Gymcord Fantasy". */
   wordmark?: string
 }
 
-/** The Gymcord Fantasy logo mark (prismatic gradient badge) + wordmark. */
+/** The real Gymcord logo mark + wordmark. Always use the official Gymcord logo image, never a placeholder. */
 export function Logo({ wordmark = 'Gymcord Fantasy' }: LogoProps) {
   return (
     <div className="gds-logo">
-      <span className="gds-logo__mark" aria-hidden="true" />
+      <img className="gds-logo__mark" src={GYMCORD_LOGO_96} alt="Gymcord" />
       <span className="gds-logo__wordmark">{wordmark}</span>
     </div>
   )

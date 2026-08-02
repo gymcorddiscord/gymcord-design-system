@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Gymcord Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root[data-theme="dark"] {
+      --page-bg-0: #0a0a13;
+      --page-bg-1: #131320;
+      --page-border: #2a2a42;
+      --page-text-primary: #f5f5fa;
+      --page-text-secondary: #a3a3bf;
+      --page-text-tertiary: #6e6e8f;
+    }
+    :root[data-theme="light"] {
+      --page-bg-0: #f8f9fb;
+      --page-bg-1: #ffffff;
+      --page-border: #e2e4ec;
+      --page-text-primary: #16161f;
+      --page-text-secondary: #4a4a5e;
+      --page-text-tertiary: #7a7a90;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'M PLUS 1p', Arial, Helvetica, sans-serif;
+      background: var(--page-bg-0);
+      color: var(--page-text-primary);
+      transition: background .2s ease, color .2s ease;
+    }
+    a { color: inherit; }
+
+    .hero {
+      background: linear-gradient(100deg,#c026d3 0%,#8b5cf6 35%,#64748b 55%,#22c55e 100%);
+      padding: 28px 24px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-inner img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .hero-titles h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,.35);
+    }
+    .hero-titles p {
+      margin: 2px 0 0;
+      font-size: 14px;
+      color: rgba(255,255,255,.9);
+    }
+    .theme-toggle {
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(10,14,20,.55);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    section { margin-bottom: 64px; }
+    section > h2 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+    section > .section-note {
+      color: var(--page-text-secondary);
+      font-size: 14px;
+      margin: 0 0 24px;
+      max-width: 640px;
+    }
+
+    /* Every DS component card always renders on a fixed dark canvas — the
+       system is dark-theme-only, independent of this page's own light/dark
+       chrome toggle. */
+    .type-card, .card {
+      background: #131320;
+      border: 1px solid #2a2a42;
+      border-radius: 14px;
+    }
+    .type-card { padding: 28px 32px; }
+    .type-card .font-name {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #6e6e8f;
+      margin-bottom: 16px;
+    }
+    .type-row { display: flex; align-items: center; gap: 16px; padding: 10px 0; border-top: 1px solid #2a2a42; }
+    .type-row:first-of-type { border-top: none; }
+    .type-row .type-label { width: 90px; flex-shrink: 0; font-size: 12px; color: #6e6e8f; font-weight: 700; }
+
+    /* Color swatches */
+    .swatch-group { margin-bottom: 22px; }
+    .swatch-group h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--page-text-tertiary); margin: 0 0 10px; }
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .swatch { width: 96px; }
+    .swatch .chip { width: 96px; height: 64px; border-radius: 10px; border: 1px solid var(--page-border); }
+    .swatch .label { font-size: 11px; color: var(--page-text-secondary); margin-top: 6px; font-family: monospace; }
+
+    /* Component gallery */
+    .group-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--page-text-secondary);
+      margin: 36px 0 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .grid.grid-wide { grid-template-columns: 1fr; }
+    .card { overflow: hidden; }
+    .card .card-body {
+      padding: 20px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .card .card-body.center { justify-content: center; }
+    .card .card-label {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #a3a3bf;
+      border-top: 1px solid #2a2a42;
+    }
+    .icon-swatch {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 12.5px;
+      color: var(--page-text-tertiary);
+    }
+    footer a { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-inner">
+      <img src="favicon.png" alt="Gymcord" />
+      <div class="hero-titles">
+        <h1>Gymcord Design System</h1>
+        <p>Components for Gymcord Fantasy — dark violet-black surfaces, teal &amp; purple brand, full-spectrum accents.</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
+    </div>
+  </div>
+
+  <main>
+    <section id="typography">
+      <h2>Typography</h2>
+      <p class="section-note">All text is set in <strong>M PLUS 1p</strong> (Google Fonts), from body copy up through headings.</p>
+      <div class="type-card">
+        <span class="font-name">M PLUS 1p</span>
+        <div class="type-row"><span class="type-label">H1 / 32px</span><div id="type-h1"></div></div>
+        <div class="type-row"><span class="type-label">H2 / 24px</span><div id="type-h2"></div></div>
+        <div class="type-row"><span class="type-label">H3 / 18px</span><div id="type-h3"></div></div>
+        <div class="type-row"><span class="type-label">Body / 14px</span><div id="type-body"></div></div>
+        <div class="type-row"><span class="type-label">Caption / 12px</span><div id="type-caption"></div></div>
+      </div>
+    </section>
+
+    <section id="colors">
+      <h2>Colors</h2>
+      <p class="section-note">Dark violet-black surfaces, teal/purple brand, a full spectrum for discipline tags and rank tiers. Red is reserved exclusively for long-term injury status.</p>
+
+      <div class="swatch-group">
+        <h3>Surfaces</h3>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip" style="background:#0a0a13"></div><div class="label">bg-0</div></div>
+          <div class="swatch"><div class="chip" style="background:#131320"></div><div class="label">bg-1</div></div>
+          <div class="swatch"><div class="chip" style="background:#1c1c2e"></div><div class="label">bg-2</div></div>
+          <div class="swatch"><div class="chip" style="background:#27273d"></div><div class="label">bg-3</div></div>
+        </div>
+      </div>
+
+      <div class="swatch-group">
+        <h3>Brand</h3>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip" style="background:#22d3ee"></div><div class="label">primary (teal)</div></div>
+          <div class="swatch"><div class="chip" style="background:#8b5cf6"></div><div class="label">secondary (purple)</div></div>
+        </div>
+      </div>
+
+      <div class="swatch-group">
+        <h3>Spectrum</h3>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip" style="background:#fb923c"></div><div class="label">orange</div></div>
+          <div class="swatch"><div class="chip" style="background:#fbbf24"></div><div class="label">yellow</div></div>
+          <div class="swatch"><div class="chip" style="background:#34d399"></div><div class="label">green</div></div>
+          <div class="swatch"><div class="chip" style="background:#2dd4bf"></div><div class="label">teal</div></div>
+          <div class="swatch"><div class="chip" style="background:#3b82f6"></div><div class="label">blue</div></div>
+          <div class="swatch"><div class="chip" style="background:#8b5cf6"></div><div class="label">violet</div></div>
+        </div>
+      </div>
+
+      <div class="swatch-group">
+        <h3>Semantic</h3>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip" style="background:#34d399"></div><div class="label">success</div></div>
+          <div class="swatch"><div class="chip" style="background:#fbbf24"></div><div class="label">warning</div></div>
+          <div class="swatch"><div class="chip" style="background:#fb923c"></div><div class="label">danger</div></div>
+          <div class="swatch"><div class="chip" style="background:#3b82f6"></div><div class="label">info</div></div>
+          <div class="swatch"><div class="chip" style="background:#ef4444"></div><div class="label">injury (long-term only)</div></div>
+        </div>
+      </div>
+
+      <div class="swatch-group">
+        <h3>Rank tiers</h3>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip" style="background:#cd7f32"></div><div class="label">bronze</div></div>
+          <div class="swatch"><div class="chip" style="background:#c0c6d1"></div><div class="label">silver</div></div>
+          <div class="swatch"><div class="chip" style="background:#f5c542"></div><div class="label">gold</div></div>
+          <div class="swatch"><div class="chip" style="background:linear-gradient(100deg,#fb923c,#fbbf24,#34d399,#2dd4bf,#3b82f6,#8b5cf6)"></div><div class="label">prismatic</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="components">
+      <h2>Components</h2>
+      <p class="section-note">30 components, live-rendered from the real compiled bundle — the app header, weekly lineup table, and every status badge in use today.</p>
+
+      <div class="group-title">App Header &amp; Navigation</div>
+      <div class="grid grid-wide">
+        <div class="card"><div class="card-body center" id="c-appheader"></div><div class="card-label">AppHeader</div></div>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        <div class="card"><div class="card-body center" id="c-logo"></div><div class="card-label">Logo</div></div>
+        <div class="card"><div class="card-body center" id="c-leagueswitcher"></div><div class="card-label">LeagueSwitcher</div></div>
+        <div class="card"><div class="card-body center" id="c-weeknav"></div><div class="card-label">WeekNavigator</div></div>
+        <div class="card"><div class="card-body center" id="c-navtabs"></div><div class="card-label">SegmentedToggle — nav tabs</div></div>
+        <div class="card"><div class="card-body center" id="c-metrictoggle"></div><div class="card-label">SegmentedToggle — metric</div></div>
+      </div>
+
+      <div class="group-title">Athlete Table</div>
+      <div class="grid grid-wide">
+        <div class="card"><div class="card-body" id="c-athletetable" style="padding:0"></div><div class="card-label">AthleteTable</div></div>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        <div class="card"><div class="card-body center" id="c-scorecell"></div><div class="card-label">ScoreCell</div></div>
+      </div>
+
+      <div class="group-title">Badges &amp; Status</div>
+      <div class="grid">
+        <div class="card"><div class="card-body center" id="c-homeaway"></div><div class="card-label">HomeAwayBadge</div></div>
+        <div class="card"><div class="card-body center" id="c-injury"></div><div class="card-label">InjuryBadge</div></div>
+        <div class="card"><div class="card-body center" id="c-bye"></div><div class="card-label">ByeBadge</div></div>
+        <div class="card"><div class="card-body center" id="c-doubleweek"></div><div class="card-label">DoubleWeekBadge</div></div>
+        <div class="card"><div class="card-body center" id="c-ranktier"></div><div class="card-label">RankTierBadge</div></div>
+        <div class="card"><div class="card-body center" id="c-discipline"></div><div class="card-label">DisciplineTag</div></div>
+      </div>
+
+      <div class="group-title">Buttons &amp; Feedback</div>
+      <div class="grid">
+        <div class="card"><div class="card-body center" id="c-buttons"></div><div class="card-label">Button</div></div>
+        <div class="card"><div class="card-body center" id="c-loading"></div><div class="card-label">LoadingIndicator</div></div>
+        <div class="card"><div class="card-body center" id="c-footer"></div><div class="card-label">Footer</div></div>
+        <div class="card"><div class="card-body center" style="height:140px;color:#a3a3bf;font-size:13px;text-align:center;padding:24px">A floating pill, fixed to the bottom-right of the viewport — see it live on this page →</div><div class="card-label">FeedbackButton</div></div>
+      </div>
+
+      <div class="group-title">Icons</div>
+      <div class="grid">
+        <div class="card"><div class="card-body center" id="c-icons"></div><div class="card-label">Home / Away / Injury / Bye / Nav / Chevrons</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with &lt;3 by Gymcord &middot; v1.0 &middot;
+    <a href="https://gymcorddiscord.github.io/gymcord-home/terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Privacy</a>
+  </footer>
+
+  <div id="global-feedback"></div>
+
+  <script src="_vendor/react.js"></script>
+  <script src="_vendor/react-dom.js"></script>
+  <script src="_ds_bundle.js"></script>
+  <script>
+    // Theme toggle — persisted, falls back to OS preference. Same pattern as every other Gymcord page.
+    // Only affects this page's own chrome; DS component cards always render dark (the system has no light mode).
+    (function () {
+      var KEY = 'gymcordDesignSystemTheme';
+      var saved = localStorage.getItem(KEY);
+      var initial = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', initial);
+      var btn = document.getElementById('themeToggle');
+      function render() {
+        var theme = document.documentElement.getAttribute('data-theme');
+        btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+      }
+      render();
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+        render();
+      });
+    })();
+
+    // Live component gallery — every card below renders the real compiled component.
+    (function () {
+      var h = React.createElement;
+      var DS = window.GymcordDS;
+      function mount(id, node) {
+        var el = document.getElementById(id);
+        if (el) ReactDOM.createRoot(el).render(node);
+      }
+
+      mount('type-h1', h(DS.Heading, { level: 1 }, 'Save your lineup'));
+      mount('type-h2', h(DS.Heading, { level: 2 }, 'Elite Squad League'));
+      mount('type-h3', h(DS.Heading, { level: 3 }, 'Precision Flyers'));
+      mount('type-body', h(DS.Text, { size: 'body', tone: 'primary' }, 'Only the top COUNT scores among the UP gymnasts started on that event count toward the weekly team total.'));
+      mount('type-caption', h(DS.Text, { size: 'caption', tone: 'secondary' }, 'LSU · Week 3 · Current'));
+
+      mount('c-appheader', h(DS.AppHeader, {
+        teamName: 'Precision Flyers', leagueName: 'Elite Squad League',
+        weekLabel: 'Week 3', weekStatusLabel: 'CURRENT', activeTab: 'lineups'
+      }));
+      mount('c-logo', h(DS.Logo));
+      mount('c-leagueswitcher', h(DS.LeagueSwitcher, { teamName: 'Precision Flyers', leagueName: 'Elite Squad League' }));
+      mount('c-weeknav', h(DS.WeekNavigator, { weekLabel: 'Week 3', statusLabel: 'CURRENT' }));
+      mount('c-navtabs', h(DS.SegmentedToggle, {
+        size: 'lg', value: 'lineups',
+        options: [
+          { value: 'lineups', label: 'Lineups', icon: h(DS.PeopleIcon, { size: 16 }) },
+          { value: 'leaderboard', label: 'Leaderboard', icon: h(DS.TrophyIcon, { size: 16 }) }
+        ]
+      }));
+      mount('c-metrictoggle', h(DS.SegmentedToggle, {
+        size: 'sm', value: 'avg',
+        options: [{ value: 'avg', label: 'Avg' }, { value: 'high', label: 'High' }, { value: 'last', label: 'Last' }]
+      }));
+
+      mount('c-athletetable', h(DS.AthleteTable, {
+        columns: [{ key: 'VT', caption: '0/10' }, { key: 'UB', caption: '0/10' }, { key: 'BB', caption: '0/10' }, { key: 'FX', caption: '0/10' }],
+        rows: [
+          { id: 'bryant', name: 'Haleigh Bryant', team: 'LSU', badges: h(DS.HomeAwayBadge, { type: 'home' }), scores: { VT: 9.938, UB: 9.887, BB: 9.838, FX: 9.787 } },
+          { id: 'finnegan', name: 'Aleah Finnegan', team: 'LSU', badges: h(React.Fragment, null, h(DS.HomeAwayBadge, { type: 'home' }), h(DS.DoubleWeekBadge)), scores: { VT: 9.9, UB: 9.85, BB: 9.8, FX: 9.75 } },
+          { id: 'harris', name: 'Selena Harris', team: 'UCLA', badges: h(React.Fragment, null, h(DS.HomeAwayBadge, { type: 'away' }), h(DS.InjuryBadge, { severity: 'short-term' })), scores: { VT: 9.919, UB: 9.869, BB: null, FX: 9.769 } }
+        ]
+      }));
+      mount('c-scorecell', h(React.Fragment, null, h(DS.ScoreCell, { value: 9.875 }), h(DS.ScoreCell, { value: null })));
+
+      mount('c-homeaway', h(React.Fragment, null, h(DS.HomeAwayBadge, { type: 'home' }), h(DS.HomeAwayBadge, { type: 'away' })));
+      mount('c-injury', h(React.Fragment, null, h(DS.InjuryBadge, { severity: 'short-term' }), h(DS.InjuryBadge, { severity: 'long-term' })));
+      mount('c-bye', h(DS.ByeBadge));
+      mount('c-doubleweek', h(DS.DoubleWeekBadge));
+      mount('c-ranktier', h(React.Fragment, null,
+        h(DS.RankTierBadge, { tier: 'bronze' }), h(DS.RankTierBadge, { tier: 'silver' }),
+        h(DS.RankTierBadge, { tier: 'gold' }), h(DS.RankTierBadge, { tier: 'prismatic' })));
+      mount('c-discipline', h(React.Fragment, null,
+        h(DS.DisciplineTag, { discipline: 'VT' }), h(DS.DisciplineTag, { discipline: 'UB' }), h(DS.DisciplineTag, { discipline: 'BB' }),
+        h(DS.DisciplineTag, { discipline: 'FX' }), h(DS.DisciplineTag, { discipline: 'AA' })));
+
+      mount('c-buttons', h(React.Fragment, null,
+        h(DS.Button, { variant: 'primary' }, 'Save Lineup'),
+        h(DS.Button, { variant: 'secondary' }, 'Import Last Week'),
+        h(DS.Button, { variant: 'tertiary' }, 'Clear All')));
+      mount('c-loading', h(React.Fragment, null, h(DS.LoadingIndicator, { size: 'lg' }), h(DS.LoadingIndicator, { size: 'sm' })));
+      mount('c-footer', h(DS.Footer, { version: 'v0.1.1' }));
+      mount('global-feedback', h(DS.FeedbackButton, { currentPath: '/lineups', onSubmit: function () { return Promise.resolve(); } }));
+
+      var iconSwatch = function (bg, color, Icon) {
+        return h('span', { className: 'icon-swatch', style: { background: bg, color: color } }, h(Icon, { size: 26 }));
+      };
+      mount('c-icons', h(React.Fragment, null,
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.HomeIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.PlaneIcon),
+        iconSwatch('#1c1c2e', '#fb923c', DS.InjuryIcon),
+        iconSwatch('#fb923c', '#0a0a13', DS.PauseIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronLeftIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronRightIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronDownIcon),
+        iconSwatch('#22d3ee', '#0a0a13', DS.PeopleIcon),
+        iconSwatch('#f5c542', '#0a0a13', DS.TrophyIcon),
+        iconSwatch('#8b5cf6', '#f5f5fa', DS.SwapIcon),
+        iconSwatch('#3b82f6', '#f5f5fa', DS.AnalyticsIcon)));
+    })();
+  </script>
+</body>
+</html>

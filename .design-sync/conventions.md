@@ -15,6 +15,11 @@ Components ship their own scoped CSS and read colors/spacing from tokens defined
 **Rank tiers**: `--tier-bronze`, `--tier-silver`, `--tier-gold`, `--tier-prismatic`
 **Radius**: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill` (use `--radius-pill` for primary CTA buttons and nav segments — always a **solid** fill, never a gradient, on large pill-shaped buttons; a gradient fill on a fully-rounded large pill produces a visible rendering artifact at the edge)
 **Font**: `--font-family` resolves to M PLUS 1p (loaded via a remote Google Fonts `@import` already in `styles.css` — no local font files to manage)
+**Type scale**: `--font-size-h1` (32px), `--font-size-h2` (24px), `--font-size-h3` (18px), `--font-size-body` (14px), `--font-size-caption` (12px) — use the `Heading` component (`level={1|2|3}`) and `Text` component (`size="body"|"caption"`, `tone="primary"|"secondary"|"tertiary"`) rather than raw `<h1>`/`<p>` tags, so text always matches this scale.
+
+### Logo
+
+`Logo` renders the real Gymcord brand mark (a gymnast silhouette over a prismatic gradient) — never substitute a generated or placeholder mark. It's a self-contained component (the image is inlined); just drop `<Logo />` in, optionally overriding `wordmark`.
 
 ### Where the truth lives
 

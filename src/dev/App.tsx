@@ -10,6 +10,8 @@ import { DoubleWeekBadge } from '../components/badges/DoubleWeekBadge'
 import { Footer } from '../components/Footer/Footer'
 import { FeedbackButton } from '../components/FeedbackButton/FeedbackButton'
 import { RankTierBadge } from '../components/badges/RankTierBadge'
+import { Heading } from '../components/Typography/Heading'
+import { Text } from '../components/Typography/Text'
 import { DisciplineTag } from '../components/badges/DisciplineTag'
 import { LoadingIndicator } from '../components/LoadingIndicator/LoadingIndicator'
 
@@ -140,6 +142,14 @@ export function App() {
           <AthleteTable columns={[...COLUMNS]} rows={ROWS} selected={selected} onToggle={(id, col, checked) => {
             setSelected((prev) => ({ ...prev, [id]: { ...prev[id], [col]: checked } }))
           }} />
+        </div>
+
+        <div style={{ marginTop: 32, background: 'var(--bg-1)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)', padding: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <Heading level={1}>Heading 1</Heading>
+          <Heading level={2}>Heading 2</Heading>
+          <Heading level={3}>Heading 3</Heading>
+          <Text size="body" tone="primary">Body text — M PLUS 1p, primary tone.</Text>
+          <Text size="caption" tone="secondary">Caption text — secondary tone.</Text>
         </div>
       </div>
 

@@ -5,6 +5,18 @@
   /* Font */
   --font-family: 'M PLUS 1p', Arial, Helvetica, sans-serif;
 
+  /* Type scale */
+  --font-size-h1: 32px;
+  --font-size-h2: 24px;
+  --font-size-h3: 18px;
+  --font-size-body: 14px;
+  --font-size-caption: 12px;
+  --line-height-heading: 1.25;
+  --line-height-body: 1.5;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
   /* Surfaces — near-black cool violet, bg-0 darkest to bg-3 lightest */
   --bg-0: #0a0a13;
   --bg-1: #131320;

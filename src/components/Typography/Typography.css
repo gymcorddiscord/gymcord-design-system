@@ -1,0 +1,37 @@
+.gds-heading {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  margin: 0;
+}
+.gds-heading--h1 {
+  font-size: var(--font-size-h1);
+}
+.gds-heading--h2 {
+  font-size: var(--font-size-h2);
+}
+.gds-heading--h3 {
+  font-size: var(--font-size-h3);
+}
+
+.gds-text {
+  font-family: var(--font-family);
+  line-height: var(--line-height-body);
+  margin: 0;
+}
+.gds-text--body {
+  font-size: var(--font-size-body);
+}
+.gds-text--caption {
+  font-size: var(--font-size-caption);
+}
+.gds-text--primary {
+  color: var(--text-primary);
+}
+.gds-text--secondary {
+  color: var(--text-secondary);
+}
+.gds-text--tertiary {
+  color: var(--text-tertiary);
+}
