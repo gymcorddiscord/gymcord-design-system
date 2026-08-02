@@ -14,6 +14,7 @@ import { Heading } from '../components/Typography/Heading'
 import { Text } from '../components/Typography/Text'
 import { DisciplineTag } from '../components/badges/DisciplineTag'
 import { LoadingIndicator } from '../components/LoadingIndicator/LoadingIndicator'
+import { Dropdown } from '../components/Dropdown/Dropdown'
 
 const COLUMNS = [
   { key: 'VT', caption: '0/10' },
@@ -107,6 +108,7 @@ export function App() {
   const [activeTab, setActiveTab] = useState<AppHeaderTab>('lineups')
   const [metric, setMetric] = useState<'avg' | 'high' | 'last'>('avg')
   const [selected, setSelected] = useState<Record<string, Record<string, boolean>>>({})
+  const [apparatus, setApparatus] = useState('vt')
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-0)' }}>
@@ -167,6 +169,17 @@ export function App() {
         <Button variant="secondary">Secondary</Button>
         <Button variant="tertiary">Tertiary</Button>
         <LoadingIndicator phrase="Chalking up" />
+        <Dropdown
+          value={apparatus}
+          onChange={setApparatus}
+          options={[
+            { value: 'vt', label: 'Vault' },
+            { value: 'ub', label: 'Uneven Bars' },
+            { value: 'bb', label: 'Balance Beam' },
+            { value: 'fx', label: 'Floor' },
+            { value: 'aa', label: 'All-Around' }
+          ]}
+        />
       </div>
 
       <Footer version="v0.1.1" />

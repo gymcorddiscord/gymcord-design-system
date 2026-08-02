@@ -2,6 +2,7 @@
 @import './tokens/tokens.css';
 @import './components/Typography/Typography.css';
 @import './components/Button/Button.css';
+@import './components/Dropdown/Dropdown.css';
 @import './components/SegmentedToggle/SegmentedToggle.css';
 @import './components/AppHeader/AppHeader.css';
 @import './components/AthleteTable/AthleteTable.css';

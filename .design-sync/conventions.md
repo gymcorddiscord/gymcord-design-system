@@ -21,6 +21,10 @@ Components ship their own scoped CSS and read colors/spacing from tokens defined
 
 `Logo` renders the real Gymcord brand mark (a gymnast silhouette over a prismatic gradient) — never substitute a generated or placeholder mark. It's a self-contained component (the image is inlined); just drop `<Logo />` in, optionally overriding `wordmark`.
 
+### Dropdown
+
+`Dropdown` is the standard select/menu control — a trigger button (selected label + chevron) that opens a panel of large-click-target options below it, closing on outside click, Escape, or selection. Pass `defaultOpen` to mount it already open (handy for demos; it still closes normally afterward on interaction). Prefer it over a native `<select>` or a hand-rolled menu everywhere a single choice needs to be made from a list.
+
 ### Where the truth lives
 
 Read `styles.css` and its imported `tokens/tokens.css` before styling anything — they're the real compiled source, not a summary. Each component's own usage guidance and prop contract is in its `<Name>.prompt.md` and `<Name>.d.ts` alongside it.

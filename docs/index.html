@@ -268,6 +268,7 @@
         <div class="card"><div class="card-body center" id="c-weeknav"></div><div class="card-label">WeekNavigator</div></div>
         <div class="card"><div class="card-body center" id="c-navtabs"></div><div class="card-label">SegmentedToggle — nav tabs</div></div>
         <div class="card"><div class="card-body center" id="c-metrictoggle"></div><div class="card-label">SegmentedToggle — metric</div></div>
+        <div class="card" style="overflow: visible"><div class="card-body center" id="c-dropdown"></div><div class="card-label">Dropdown</div></div>
       </div>
 
       <div class="group-title">Athlete Table</div>
@@ -368,6 +369,22 @@
         size: 'sm', value: 'avg',
         options: [{ value: 'avg', label: 'Avg' }, { value: 'high', label: 'High' }, { value: 'last', label: 'Last' }]
       }));
+
+      function DropdownDemo() {
+        var state = React.useState('vt');
+        return h(DS.Dropdown, {
+          value: state[0],
+          onChange: state[1],
+          options: [
+            { value: 'vt', label: 'Vault' },
+            { value: 'ub', label: 'Uneven Bars' },
+            { value: 'bb', label: 'Balance Beam' },
+            { value: 'fx', label: 'Floor' },
+            { value: 'aa', label: 'All-Around' }
+          ]
+        });
+      }
+      mount('c-dropdown', h(DropdownDemo));
 
       mount('c-athletetable', h(DS.AthleteTable, {
         columns: [{ key: 'VT', caption: '0/10' }, { key: 'UB', caption: '0/10' }, { key: 'BB', caption: '0/10' }, { key: 'FX', caption: '0/10' }],
