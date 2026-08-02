@@ -1,4 +1,4 @@
-import { HomeIcon, PlaneIcon } from '../../icons/Icons'
+import { HomeIcon, AwayIcon } from '../../icons/Icons'
 
 export interface HomeAwayBadgeProps {
   type: 'home' | 'away'
@@ -8,7 +8,7 @@ export interface HomeAwayBadgeProps {
 export function HomeAwayBadge({ type }: HomeAwayBadgeProps) {
   return (
     <span className="gds-badge gds-badge--home-away" title={type === 'home' ? 'Home meet' : 'Away meet'}>
-      {type === 'home' ? <HomeIcon size={16} /> : <PlaneIcon size={16} />}
+      {type === 'home' ? <HomeIcon size={16} /> : <AwayIcon size={16} />}
     </span>
   )
 }

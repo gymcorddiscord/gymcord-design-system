@@ -1,0 +1,42 @@
+.gds-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 12, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+}
+
+.gds-dialog {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+}
+
+.gds-dialog__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.gds-dialog__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gds-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

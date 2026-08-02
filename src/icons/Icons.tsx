@@ -2,15 +2,39 @@ import type { SVGProps } from 'react'
 import {
   House,
   Airplane,
+  AirplaneTilt,
   FirstAidKit,
   Pause,
+  PauseCircle,
   CaretLeft,
   CaretRight,
   CaretDown,
+  CaretUp,
   Users,
   Trophy,
   ArrowsLeftRight,
-  ChartBar
+  ChartBar,
+  MagnifyingGlass,
+  X,
+  CalendarBlank,
+  Clock,
+  Plus,
+  Check,
+  DiscordLogo,
+  Moon,
+  Sun,
+  ChatTeardropText,
+  UserCircle,
+  Cards,
+  ClipboardText,
+  Star,
+  Horse,
+  Sparkle,
+  Flower,
+  Books,
+  Palette,
+  Medal,
+  Butterfly
 } from '@phosphor-icons/react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: number }
@@ -28,12 +52,21 @@ export function PlaneIcon({ size = 18, ...props }: IconProps) {
   return <Airplane size={size} weight="bold" {...props} />
 }
 
+/** Away-meet travel icon — Phosphor's "tilted" airplane variant, used specifically for away-meet status. */
+export function AwayIcon({ size = 18, ...props }: IconProps) {
+  return <AirplaneTilt size={size} weight="bold" {...props} />
+}
+
 export function InjuryIcon({ size = 18, ...props }: IconProps) {
   return <FirstAidKit size={size} weight="bold" {...props} />
 }
 
 export function PauseIcon({ size = 18, ...props }: IconProps) {
   return <Pause size={size} weight="bold" {...props} />
+}
+
+export function PauseCircleIcon({ size = 18, ...props }: IconProps) {
+  return <PauseCircle size={size} weight="bold" {...props} />
 }
 
 export function ChevronLeftIcon({ size = 18, ...props }: IconProps) {
@@ -46,6 +79,10 @@ export function ChevronRightIcon({ size = 18, ...props }: IconProps) {
 
 export function ChevronDownIcon({ size = 18, ...props }: IconProps) {
   return <CaretDown size={size} weight="bold" {...props} />
+}
+
+export function ChevronUpIcon({ size = 18, ...props }: IconProps) {
+  return <CaretUp size={size} weight="bold" {...props} />
 }
 
 export function PeopleIcon({ size = 18, ...props }: IconProps) {
@@ -62,4 +99,91 @@ export function SwapIcon({ size = 18, ...props }: IconProps) {
 
 export function AnalyticsIcon({ size = 18, ...props }: IconProps) {
   return <ChartBar size={size} weight="bold" {...props} />
+}
+
+export function SearchIcon({ size = 18, ...props }: IconProps) {
+  return <MagnifyingGlass size={size} weight="bold" {...props} />
+}
+
+export function CloseIcon({ size = 18, ...props }: IconProps) {
+  return <X size={size} weight="bold" {...props} />
+}
+
+export function CalendarIcon({ size = 18, ...props }: IconProps) {
+  return <CalendarBlank size={size} weight="bold" {...props} />
+}
+
+export function ClockIcon({ size = 18, ...props }: IconProps) {
+  return <Clock size={size} weight="bold" {...props} />
+}
+
+export function PlusIcon({ size = 18, ...props }: IconProps) {
+  return <Plus size={size} weight="bold" {...props} />
+}
+
+export function CheckIcon({ size = 18, ...props }: IconProps) {
+  return <Check size={size} weight="bold" {...props} />
+}
+
+/** Discord's brand mark — "fill" weight to match Discord's own solid logo style. */
+export function DiscordIcon({ size = 18, ...props }: IconProps) {
+  return <DiscordLogo size={size} weight="fill" {...props} />
+}
+
+export function MoonIcon({ size = 18, ...props }: IconProps) {
+  return <Moon size={size} weight="fill" {...props} />
+}
+
+export function SunIcon({ size = 18, ...props }: IconProps) {
+  return <Sun size={size} weight="fill" {...props} />
+}
+
+export function ChatIcon({ size = 18, ...props }: IconProps) {
+  return <ChatTeardropText size={size} weight="bold" {...props} />
+}
+
+export function UserCircleIcon({ size = 18, ...props }: IconProps) {
+  return <UserCircle size={size} weight="bold" {...props} />
+}
+
+export function CardsIcon({ size = 18, ...props }: IconProps) {
+  return <Cards size={size} weight="bold" {...props} />
+}
+
+export function ClipboardTextIcon({ size = 18, ...props }: IconProps) {
+  return <ClipboardText size={size} weight="bold" {...props} />
+}
+
+export function StarIcon({ size = 18, ...props }: IconProps) {
+  return <Star size={size} weight="fill" {...props} />
+}
+
+/** Phosphor has no literal goat glyph — Horse is the nearest hooved-mascot substitute. */
+export function GoatIcon({ size = 18, ...props }: IconProps) {
+  return <Horse size={size} weight="fill" {...props} />
+}
+
+/** Phosphor has no literal unicorn glyph — Sparkle stands in for the same whimsical/magical mascot feel. */
+export function UnicornIcon({ size = 18, ...props }: IconProps) {
+  return <Sparkle size={size} weight="fill" {...props} />
+}
+
+export function FlowerIcon({ size = 18, ...props }: IconProps) {
+  return <Flower size={size} weight="fill" {...props} />
+}
+
+export function BooksIcon({ size = 18, ...props }: IconProps) {
+  return <Books size={size} weight="bold" {...props} />
+}
+
+export function PaletteIcon({ size = 18, ...props }: IconProps) {
+  return <Palette size={size} weight="fill" {...props} />
+}
+
+export function MedalIcon({ size = 18, ...props }: IconProps) {
+  return <Medal size={size} weight="fill" {...props} />
+}
+
+export function ButterflyIcon({ size = 18, ...props }: IconProps) {
+  return <Butterfly size={size} weight="fill" {...props} />
 }

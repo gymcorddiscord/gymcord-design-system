@@ -1,0 +1,85 @@
+.gds-textfield {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-family);
+  width: 100%;
+}
+
+.gds-textfield__box {
+  position: relative;
+  background: var(--bg-2);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-bottom: 2px solid var(--border-default);
+  padding: 20px 12px 8px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.gds-textfield__box--focused {
+  background: var(--bg-3);
+  border-bottom-color: var(--brand-primary);
+}
+.gds-textfield__box--multiline {
+  padding-top: 24px;
+}
+.gds-textfield__box--multiline .gds-textfield__label {
+  top: 9px;
+  transform: translateY(0);
+  font-size: 11px;
+}
+.gds-textfield--error .gds-textfield__box {
+  border-bottom-color: var(--danger);
+}
+
+.gds-textfield__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  pointer-events: none;
+}
+.gds-textfield__label--floated {
+  top: 9px;
+  transform: translateY(0);
+  font-size: 11px;
+}
+.gds-textfield__box--focused .gds-textfield__label {
+  color: var(--brand-primary);
+}
+
+.gds-textfield__input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 14px;
+  padding: 0;
+}
+.gds-textfield__input::placeholder {
+  color: var(--text-tertiary);
+}
+.gds-textfield__input--multiline {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+.gds-textfield--disabled .gds-textfield__box {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.gds-textfield__helper {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  padding: 0 12px;
+}
+.gds-textfield__helper--error {
+  color: var(--danger);
+}

@@ -17,3 +17,11 @@ export function AtStart() {
     </div>
   )
 }
+
+export function Preseason() {
+  return (
+    <div style={backdrop}>
+      <WeekNavigator weekLabel="Preseason" hideArrows />
+    </div>
+  )
+}

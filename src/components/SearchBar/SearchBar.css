@@ -1,0 +1,52 @@
+.gds-searchbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-2);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.gds-searchbar:focus-within {
+  background: var(--bg-3);
+  border-color: var(--brand-primary);
+}
+
+.gds-searchbar__icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.gds-searchbar__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 14px;
+  min-width: 0;
+}
+.gds-searchbar__input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.gds-searchbar__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-3);
+  color: var(--text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.gds-searchbar__clear:hover {
+  background: var(--border-default);
+  color: var(--text-primary);
+}

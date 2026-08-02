@@ -1,0 +1,27 @@
+.gds-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: var(--brand-primary);
+  color: var(--bg-0);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+.gds-action-button:hover {
+  background: var(--brand-primary-hover);
+}
+.gds-action-button:active {
+  transform: scale(0.96);
+}
+
+.gds-action-button--lg {
+  width: 56px;
+  height: 56px;
+}
+.gds-action-button--sm {
+  width: 40px;
+  height: 40px;
+}

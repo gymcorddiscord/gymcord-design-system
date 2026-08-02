@@ -16,11 +16,7 @@
 }
 
 .gds-badge--bye {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--danger);
-  color: var(--bg-0);
+  color: var(--danger);
 }
 
 .gds-badge--double-week {

@@ -2,15 +2,15 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 44px;
-  padding: 0 18px;
-  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   border: none;
   background: var(--brand-secondary);
   color: var(--text-primary);
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 14px;
   cursor: pointer;
   box-shadow: var(--shadow-md);
 }
@@ -18,52 +18,13 @@
   background: var(--brand-secondary-hover);
 }
 
-.gds-feedback-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 5, 12, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.gds-feedback-modal {
-  width: 100%;
-  max-width: 420px;
-  margin: 16px;
-  background: var(--bg-2);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  font-family: var(--font-family);
-  color: var(--text-primary);
-}
-.gds-feedback-modal h3 {
-  margin: 0 0 8px;
-}
 .gds-feedback-modal__note {
   color: var(--text-secondary);
   font-size: 13px;
-  margin: 0 0 12px;
-}
-.gds-feedback-modal textarea {
-  width: 100%;
-  background: var(--bg-1);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-family: var(--font-family);
-  padding: 10px 12px;
-  resize: vertical;
+  margin: 0;
 }
 .gds-feedback-modal__error {
   color: var(--danger);
   font-size: 13px;
-}
-.gds-feedback-modal__actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 14px;
+  margin: 0;
 }

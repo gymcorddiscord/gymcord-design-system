@@ -10,6 +10,9 @@
     "AppHeader": { "cardMode": "column" },
     "AthleteTable": { "cardMode": "column" },
     "SegmentedToggle": { "cardMode": "column" },
-    "FeedbackButton": { "cardMode": "single", "primaryStory": "Default" }
+    "FeedbackButton": { "cardMode": "single", "primaryStory": "Default" },
+    "LoggedOutHeader": { "cardMode": "column" },
+    "DateTimePicker": { "cardMode": "column" },
+    "Dialog": { "cardMode": "single", "primaryStory": "Open" }
   }
 }
