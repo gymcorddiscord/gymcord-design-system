@@ -124,7 +124,7 @@
 }
 .gds-datetimepicker__day--selected {
   background: var(--brand-primary);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
   font-weight: 700;
 }
 .gds-datetimepicker__day--selected:hover {

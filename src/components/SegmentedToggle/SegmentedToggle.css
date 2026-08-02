@@ -24,7 +24,7 @@
 
 .gds-segmented__item--active {
   background: var(--brand-primary);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
 }
 
 .gds-segmented__icon {

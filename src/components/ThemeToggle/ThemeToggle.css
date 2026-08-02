@@ -6,11 +6,11 @@
   height: 44px;
   border-radius: var(--radius-md);
   border: none;
-  background: rgba(10, 14, 20, 0.55);
+  background: var(--bg-2);
   color: var(--text-primary);
   cursor: pointer;
   transition: background 0.15s ease;
 }
 .gds-theme-toggle:hover {
-  background: rgba(10, 14, 20, 0.75);
+  background: var(--bg-3);
 }

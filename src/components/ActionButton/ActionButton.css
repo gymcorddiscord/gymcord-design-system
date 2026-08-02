@@ -5,7 +5,7 @@
   border-radius: 50%;
   border: none;
   background: var(--brand-primary);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
   cursor: pointer;
   box-shadow: var(--shadow-md);
   transition: background 0.15s ease, transform 0.05s ease;

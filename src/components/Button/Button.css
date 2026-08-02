@@ -25,7 +25,7 @@
 
 .gds-button--primary {
   background: var(--brand-primary);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
 }
 .gds-button--primary:hover {
   background: var(--brand-primary-hover);

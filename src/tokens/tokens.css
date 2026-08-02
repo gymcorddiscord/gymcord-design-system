@@ -38,6 +38,12 @@
   --brand-secondary: #8b5cf6;
   --brand-secondary-hover: #7c3aed;
 
+  /* Fixed dark foreground for text/icons sitting on a brand or spectrum
+     fill (buttons, checkboxes, selected pills, discipline tags) — those
+     fills stay bright/saturated in both themes, so this stays constant
+     rather than following --bg-0's light/dark flip. */
+  --on-brand-fg: #0a0a13;
+
   /* Spectrum — used for discipline tags, data viz, prismatic gradients */
   --spectrum-orange: #fb923c;
   --spectrum-yellow: #fbbf24;
@@ -77,4 +83,26 @@
   /* Shadow */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Light theme — surfaces, text, and borders invert; brand/spectrum/semantic
+   colors stay the same across both themes (they're saturated enough to read
+   on light or dark surfaces, and staying constant keeps chart/badge colors
+   comparable regardless of theme). Toggled via data-theme="light" on
+   <html>, same attribute+value the app's own tokens already key off. */
+[data-theme='light'] {
+  --bg-0: #f8f9fc;
+  --bg-1: #ffffff;
+  --bg-2: #f3f4f6;
+  --bg-3: #e5e7eb;
+
+  --text-primary: #1f2937;
+  --text-secondary: #52525b;
+  --text-tertiary: #6b7280;
+
+  --border-subtle: #eef0f3;
+  --border-default: #e2e4e9;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.1);
 }

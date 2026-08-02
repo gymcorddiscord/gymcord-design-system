@@ -40,7 +40,7 @@
   border-radius: 6px;
   border: 2px solid var(--border-default);
   background: var(--bg-2);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
   transition: background 0.12s ease, border-color 0.12s ease;
 }
 .gds-checkbox__box--checked {

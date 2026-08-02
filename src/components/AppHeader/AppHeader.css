@@ -106,7 +106,7 @@
 }
 .gds-dropdown__item--selected .gds-league-switcher__item-icon {
   background: var(--brand-primary);
-  color: var(--bg-0);
+  color: var(--on-brand-fg);
 }
 .gds-league-switcher__item-text {
   display: flex;
