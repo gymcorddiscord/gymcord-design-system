@@ -34,7 +34,8 @@ import {
   Books,
   Palette,
   Medal,
-  Butterfly
+  Butterfly,
+  ArrowLineDown
 } from '@phosphor-icons/react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: number }
@@ -152,6 +153,11 @@ export function CardsIcon({ size = 18, ...props }: IconProps) {
 
 export function ClipboardTextIcon({ size = 18, ...props }: IconProps) {
   return <ClipboardText size={size} weight="bold" {...props} />
+}
+
+/** "Copy to clipboard" affordance — Phosphor's down-into-tray arrow, per design direction. */
+export function CopyIcon({ size = 18, ...props }: IconProps) {
+  return <ArrowLineDown size={size} weight="bold" {...props} />
 }
 
 export function StarIcon({ size = 18, ...props }: IconProps) {
