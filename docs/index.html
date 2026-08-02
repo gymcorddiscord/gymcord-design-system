@@ -36,46 +36,6 @@
     }
     a { color: inherit; }
 
-    .hero {
-      background: linear-gradient(100deg,#c026d3 0%,#8b5cf6 35%,#64748b 55%,#22c55e 100%);
-      padding: 28px 24px;
-    }
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .hero-inner img {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
-    .hero-titles h1 {
-      margin: 0;
-      font-size: 22px;
-      color: #fff;
-      text-shadow: 0 1px 4px rgba(0,0,0,.35);
-    }
-    .hero-titles p {
-      margin: 2px 0 0;
-      font-size: 14px;
-      color: rgba(255,255,255,.9);
-    }
-    .theme-toggle {
-      margin-left: auto;
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      border: none;
-      background: rgba(10,14,20,.55);
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
 
     main {
       max-width: 1100px;
@@ -175,15 +135,7 @@
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-inner">
-      <img src="favicon.png" alt="Gymcord" />
-      <div class="hero-titles">
-        <h1>Gymcord Design System</h1>
-      </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
-    </div>
-  </div>
+  <div id="page-header"></div>
 
   <main>
     <section id="typography">
@@ -342,7 +294,7 @@
   </main>
 
   <footer>
-    Made with &lt;3 by Gymcord &middot; v1.3 &middot;
+    Made with &lt;3 by Gymcord &middot; v1.4 &middot;
     <a href="https://gymcorddiscord.github.io/gymcord-home/terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Privacy</a>
   </footer>
 
@@ -352,27 +304,6 @@
   <script src="_vendor/react-dom.js"></script>
   <script src="_ds_bundle.js"></script>
   <script>
-    // Theme toggle — persisted, falls back to OS preference. Same pattern as every other Gymcord page.
-    // Only affects this page's own chrome; DS component cards always render dark (the system has no light mode).
-    (function () {
-      var KEY = 'gymcordDesignSystemTheme';
-      var saved = localStorage.getItem(KEY);
-      var initial = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', initial);
-      var btn = document.getElementById('themeToggle');
-      function render() {
-        var theme = document.documentElement.getAttribute('data-theme');
-        btn.textContent = theme === 'dark' ? '🌙' : '☀️';
-      }
-      render();
-      btn.addEventListener('click', function () {
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        render();
-      });
-    })();
-
     // Live component gallery — every card below renders the real compiled component.
     (function () {
       var h = React.createElement;
@@ -381,6 +312,28 @@
         var el = document.getElementById(id);
         if (el) ReactDOM.createRoot(el).render(node);
       }
+
+      // Page theme — persisted, falls back to OS preference. Same pattern as every other Gymcord
+      // page. Only affects this page's own chrome (typography/colors/footer); DS component cards
+      // always render dark (the system has no light mode) and the page's own header is the real
+      // AppHeader (phase="standard") below, dogfooding the component.
+      var THEME_KEY = 'gymcordDesignSystemTheme';
+      var savedTheme = localStorage.getItem(THEME_KEY);
+      var initialTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', initialTheme);
+
+      function PageHeader() {
+        var state = React.useState(initialTheme);
+        var theme = state[0];
+        var setTheme = state[1];
+        function handleThemeToggle(next) {
+          setTheme(next);
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem(THEME_KEY, next);
+        }
+        return h(DS.AppHeader, { phase: 'standard', theme: theme, onThemeToggle: handleThemeToggle });
+      }
+      mount('page-header', h(PageHeader));
 
       var LEAGUES = [
         { id: 'elite-squad', teamName: 'Precision Flyers', leagueName: 'Elite Squad League', icon: h(DS.StarIcon, { size: 18 }) },
