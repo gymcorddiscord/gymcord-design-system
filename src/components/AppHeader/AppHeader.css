@@ -26,7 +26,16 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* Logo — never underlined, including on hover. The :hover rule is needed
+   even though the base selector already sets text-decoration: none,
+   because a generic `a:hover` rule (common in host-app global styles) has
+   higher specificity than a lone class selector and would otherwise win. */
+.gds-app-header__logo-link,
+.gds-app-header__logo-link:hover {
+  display: flex;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 .gds-logo {
   display: flex;
   align-items: center;

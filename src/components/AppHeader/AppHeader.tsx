@@ -22,6 +22,8 @@ const PRESEASON_TABS: SegmentedToggleOption<AppHeaderTab>[] = [
 ]
 
 export interface AppHeaderProps {
+  /** Href the logo/wordmark links to (e.g. "#/home"). Omit to render the logo as inert (non-interactive). */
+  logoHref?: string
   /** Every league/team the player is in — the header's `LeagueSwitcher` lets them switch. Not used in `phase="standard"`. */
   leagues?: LeagueOption[]
   activeLeagueId?: string
@@ -58,6 +60,7 @@ export interface AppHeaderProps {
  * with no league/week/tab context.
  */
 export function AppHeader({
+  logoHref,
   leagues,
   activeLeagueId,
   onLeagueChange,
@@ -77,6 +80,13 @@ export function AppHeader({
 }: AppHeaderProps) {
   const isPreseason = phase === 'preseason'
   const isStandard = phase === 'standard'
+  const logo = logoHref ? (
+    <a href={logoHref} className="gds-app-header__logo-link">
+      <Logo />
+    </a>
+  ) : (
+    <Logo />
+  )
   const [accountMenuOpen, setAccountMenuOpen] = useState(Boolean(accountMenuDefaultOpen))
   const accountRef = useRef<HTMLDivElement>(null)
 
@@ -100,7 +110,7 @@ export function AppHeader({
     return (
       <header className="gds-app-header">
         <div className="gds-app-header__row gds-app-header--standard">
-          <Logo />
+          {logo}
           {theme ? <ThemeToggle theme={theme} onToggle={onThemeToggle} /> : null}
         </div>
       </header>
@@ -110,7 +120,7 @@ export function AppHeader({
   return (
     <header className="gds-app-header">
       <div className="gds-app-header__row">
-        <Logo />
+        {logo}
         {leagues && leagues.length > 0 && activeLeagueId ? (
           <LeagueSwitcher leagues={leagues} activeLeagueId={activeLeagueId} onChange={onLeagueChange} />
         ) : null}
