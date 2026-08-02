@@ -8,6 +8,9 @@
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-family);
 }
+.gds-app-header--standard {
+  justify-content: space-between;
+}
 
 /* Logo */
 .gds-logo {
@@ -32,6 +35,10 @@
 }
 
 /* League switcher */
+.gds-league-switcher-root {
+  position: relative;
+  flex-shrink: 0;
+}
 .gds-league-switcher {
   display: flex;
   align-items: center;
@@ -75,6 +82,44 @@
 .gds-league-switcher__chevron {
   color: var(--text-tertiary);
   flex-shrink: 0;
+}
+
+.gds-league-switcher__menu {
+  min-width: 240px;
+}
+.gds-league-switcher__item {
+  height: auto;
+  padding: 8px 10px;
+}
+.gds-league-switcher__item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.gds-dropdown__item--selected .gds-league-switcher__item-icon {
+  background: var(--brand-primary);
+  color: var(--bg-0);
+}
+.gds-league-switcher__item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+.gds-league-switcher__item-team {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.gds-league-switcher__item-league {
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 /* Week navigator */
@@ -125,4 +170,37 @@
 
 .gds-app-header__tabs {
   flex-shrink: 0;
+}
+
+.gds-app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.gds-app-header__account {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.gds-app-header__account:hover {
+  background: var(--bg-2);
+  color: var(--text-primary);
+}
+
+/* Right-aligns under the rightmost header icon instead of overflowing the viewport. */
+.gds-app-header__account-menu {
+  left: auto;
+  right: 0;
+  min-width: 160px;
 }

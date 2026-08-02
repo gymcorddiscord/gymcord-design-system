@@ -139,6 +139,7 @@
     }
     .grid.grid-wide { grid-template-columns: 1fr; }
     .card { overflow: hidden; }
+    .card.card-overflow-visible { overflow: visible; }
     .card .card-body {
       padding: 20px;
       min-height: 60px;
@@ -256,19 +257,29 @@
 
     <section id="components">
       <h2>Components</h2>
-      <p class="section-note">30 components, live-rendered from the real compiled bundle — the app header, weekly lineup table, and every status badge in use today.</p>
+      <p class="section-note">59 components, live-rendered from the real compiled bundle: the app header, weekly lineup table, and every status badge in use today.</p>
 
       <div class="group-title">App Header &amp; Navigation</div>
       <div class="grid grid-wide">
-        <div class="card"><div class="card-body center" id="c-appheader"></div><div class="card-label">AppHeader</div></div>
+        <div class="card"><div class="card-body" id="c-appheader" style="padding:0"></div><div class="card-label">AppHeader — season</div></div>
+      </div>
+      <div class="grid grid-wide" style="margin-top:16px">
+        <div class="card"><div class="card-body" id="c-appheader-preseason" style="padding:0"></div><div class="card-label">AppHeader — preseason (phase="preseason")</div></div>
+      </div>
+      <div class="grid grid-wide" style="margin-top:16px">
+        <div class="card"><div class="card-body" id="c-appheader-standard" style="padding:0"></div><div class="card-label">AppHeader — standard (phase="standard")</div></div>
+      </div>
+      <div class="grid grid-wide" style="margin-top:16px">
+        <div class="card"><div class="card-body" id="c-loggedoutheader" style="padding:0"></div><div class="card-label">LoggedOutHeader</div></div>
       </div>
       <div class="grid" style="margin-top:16px">
         <div class="card"><div class="card-body center" id="c-logo"></div><div class="card-label">Logo</div></div>
-        <div class="card"><div class="card-body center" id="c-leagueswitcher"></div><div class="card-label">LeagueSwitcher</div></div>
+        <div class="card card-overflow-visible"><div class="card-body center" id="c-leagueswitcher"></div><div class="card-label">LeagueSwitcher</div></div>
         <div class="card"><div class="card-body center" id="c-weeknav"></div><div class="card-label">WeekNavigator</div></div>
+        <div class="card"><div class="card-body center" id="c-weeknav-preseason"></div><div class="card-label">WeekNavigator — preseason</div></div>
         <div class="card"><div class="card-body center" id="c-navtabs"></div><div class="card-label">SegmentedToggle — nav tabs</div></div>
         <div class="card"><div class="card-body center" id="c-metrictoggle"></div><div class="card-label">SegmentedToggle — metric</div></div>
-        <div class="card" style="overflow: visible"><div class="card-body center" id="c-dropdown"></div><div class="card-label">Dropdown</div></div>
+        <div class="card card-overflow-visible"><div class="card-body center" id="c-dropdown"></div><div class="card-label">Dropdown</div></div>
       </div>
 
       <div class="group-title">Athlete Table</div>
@@ -289,23 +300,49 @@
         <div class="card"><div class="card-body center" id="c-discipline"></div><div class="card-label">DisciplineTag</div></div>
       </div>
 
+      <div class="group-title">Forms</div>
+      <div class="grid">
+        <div class="card"><div class="card-body center" id="c-checkbox"></div><div class="card-label">Checkbox</div></div>
+        <div class="card"><div class="card-body center" id="c-textfield"></div><div class="card-label">TextField</div></div>
+        <div class="card"><div class="card-body center" id="c-textfield-multiline"></div><div class="card-label">TextField — multiline</div></div>
+        <div class="card"><div class="card-body center" id="c-searchbar"></div><div class="card-label">SearchBar</div></div>
+        <div class="card card-overflow-visible"><div class="card-body center" id="c-datetimepicker"></div><div class="card-label">DateTimePicker</div></div>
+      </div>
+
+      <div class="group-title">Cards</div>
+      <div class="grid">
+        <div class="card"><div class="card-body center" id="c-card-flat"></div><div class="card-label">Card — flat</div></div>
+        <div class="card"><div class="card-body center" id="c-card-raised"></div><div class="card-label">Card — raised</div></div>
+        <div class="card"><div class="card-body center" id="c-card-interactive"></div><div class="card-label">Card — interactive</div></div>
+      </div>
+
       <div class="group-title">Buttons &amp; Feedback</div>
       <div class="grid">
         <div class="card"><div class="card-body center" id="c-buttons"></div><div class="card-label">Button</div></div>
+        <div class="card"><div class="card-body center" id="c-actionbutton"></div><div class="card-label">ActionButton</div></div>
+        <div class="card"><div class="card-body center" id="c-discordbutton"></div><div class="card-label">SignInWithDiscordButton</div></div>
+        <div class="card"><div class="card-body center" id="c-themetoggle"></div><div class="card-label">ThemeToggle</div></div>
+        <div class="card card-overflow-visible"><div class="card-body center" id="c-tooltip"></div><div class="card-label">Tooltip (hover it)</div></div>
+        <div class="card card-overflow-visible"><div class="card-body center" id="c-calendarbutton"></div><div class="card-label">AddToCalendarButton</div></div>
         <div class="card"><div class="card-body center" id="c-loading"></div><div class="card-label">LoadingIndicator</div></div>
         <div class="card"><div class="card-body center" id="c-footer"></div><div class="card-label">Footer</div></div>
-        <div class="card"><div class="card-body center" style="height:140px;color:#a3a3bf;font-size:13px;text-align:center;padding:24px">A floating pill, fixed to the bottom-right of the viewport — see it live on this page →</div><div class="card-label">FeedbackButton</div></div>
+        <div class="card"><div class="card-body center" style="height:140px;color:#a3a3bf;font-size:13px;text-align:center;padding:24px">Hover the FAB (bottom-right of this page) for the tooltip, click for the full dialog →</div><div class="card-label">FeedbackButton</div></div>
+      </div>
+
+      <div class="group-title">Dialog</div>
+      <div class="grid grid-wide">
+        <div class="card"><div class="card-body center" id="c-dialog"></div><div class="card-label">Dialog — click to open</div></div>
       </div>
 
       <div class="group-title">Icons</div>
       <div class="grid">
-        <div class="card"><div class="card-body center" id="c-icons"></div><div class="card-label">Home / Away / Injury / Bye / Nav / Chevrons</div></div>
+        <div class="card"><div class="card-body center" id="c-icons"></div><div class="card-label">Full icon set (Phosphor Icons, MIT)</div></div>
       </div>
     </section>
   </main>
 
   <footer>
-    Made with &lt;3 by Gymcord &middot; v1.0 &middot;
+    Made with &lt;3 by Gymcord &middot; v1.2 &middot;
     <a href="https://gymcorddiscord.github.io/gymcord-home/terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Privacy</a>
   </footer>
 
@@ -345,19 +382,73 @@
         if (el) ReactDOM.createRoot(el).render(node);
       }
 
+      var LEAGUES = [
+        { id: 'elite-squad', teamName: 'Precision Flyers', leagueName: 'Elite Squad League', icon: h(DS.StarIcon, { size: 18 }) },
+        { id: 'goat-league', teamName: 'Chalk Legends', leagueName: 'GOAT League', icon: h(DS.GoatIcon, { size: 18 }) },
+        { id: 'unicorn-cup', teamName: 'Magic Unicorns', leagueName: 'Unicorn Cup', icon: h(DS.UnicornIcon, { size: 18 }) },
+        { id: 'garden-league', teamName: 'Bloom Squad', leagueName: 'Garden League', icon: h(DS.FlowerIcon, { size: 18 }) },
+        { id: 'book-club', teamName: 'The Bookworms', leagueName: 'Scholars League', icon: h(DS.BooksIcon, { size: 18 }) },
+        { id: 'art-league', teamName: 'Palette Pals', leagueName: 'Artists League', icon: h(DS.PaletteIcon, { size: 18 }) },
+        { id: 'sunshine-league', teamName: 'Sun Chasers', leagueName: 'Sunshine League', icon: h(DS.SunIcon, { size: 18 }) },
+        { id: 'medal-league', teamName: 'Podium Club', leagueName: 'Medal League', icon: h(DS.MedalIcon, { size: 18 }) },
+        { id: 'champions-league', teamName: 'Top Contenders', leagueName: 'Champions League', icon: h(DS.TrophyIcon, { size: 18 }) },
+        { id: 'butterfly-league', teamName: 'Wing Squad', leagueName: 'Butterfly League', icon: h(DS.ButterflyIcon, { size: 18 }) }
+      ];
+
       mount('type-h1', h(DS.Heading, { level: 1 }, 'Save your lineup'));
       mount('type-h2', h(DS.Heading, { level: 2 }, 'Elite Squad League'));
       mount('type-h3', h(DS.Heading, { level: 3 }, 'Precision Flyers'));
       mount('type-body', h(DS.Text, { size: 'body', tone: 'primary' }, 'Only the top COUNT scores among the UP gymnasts started on that event count toward the weekly team total.'));
       mount('type-caption', h(DS.Text, { size: 'caption', tone: 'secondary' }, 'LSU · Week 3 · Current'));
 
-      mount('c-appheader', h(DS.AppHeader, {
-        teamName: 'Precision Flyers', leagueName: 'Elite Squad League',
-        weekLabel: 'Week 3', weekStatusLabel: 'CURRENT', activeTab: 'lineups'
-      }));
+      function AppHeaderDemo() {
+        var league = React.useState('elite-squad');
+        var tab = React.useState('lineups');
+        var theme = React.useState('dark');
+        return h(DS.AppHeader, {
+          leagues: LEAGUES, activeLeagueId: league[0], onLeagueChange: league[1],
+          weekLabel: 'Week 3', weekStatusLabel: 'CURRENT',
+          activeTab: tab[0], onTabChange: tab[1],
+          theme: theme[0], onThemeToggle: theme[1],
+          onLogOut: function () {}
+        });
+      }
+      mount('c-appheader', h(AppHeaderDemo));
+
+      function AppHeaderPreseasonDemo() {
+        var league = React.useState('elite-squad');
+        var tab = React.useState('draft');
+        var theme = React.useState('dark');
+        return h(DS.AppHeader, {
+          leagues: LEAGUES, activeLeagueId: league[0], onLeagueChange: league[1], phase: 'preseason',
+          activeTab: tab[0], onTabChange: tab[1],
+          theme: theme[0], onThemeToggle: theme[1],
+          onLogOut: function () {}
+        });
+      }
+      mount('c-appheader-preseason', h(AppHeaderPreseasonDemo));
+
+      function AppHeaderStandardDemo() {
+        var theme = React.useState('dark');
+        return h(DS.AppHeader, { phase: 'standard', theme: theme[0], onThemeToggle: theme[1] });
+      }
+      mount('c-appheader-standard', h(AppHeaderStandardDemo));
+
+      function LoggedOutHeaderDemo() {
+        var theme = React.useState('dark');
+        return h(DS.LoggedOutHeader, { theme: theme[0], onThemeToggle: theme[1], onLogIn: function () {}, onSignUp: function () {} });
+      }
+      mount('c-loggedoutheader', h(LoggedOutHeaderDemo));
+
       mount('c-logo', h(DS.Logo));
-      mount('c-leagueswitcher', h(DS.LeagueSwitcher, { teamName: 'Precision Flyers', leagueName: 'Elite Squad League' }));
+
+      function LeagueSwitcherDemo() {
+        var league = React.useState('elite-squad');
+        return h(DS.LeagueSwitcher, { leagues: LEAGUES, activeLeagueId: league[0], onChange: league[1] });
+      }
+      mount('c-leagueswitcher', h(LeagueSwitcherDemo));
       mount('c-weeknav', h(DS.WeekNavigator, { weekLabel: 'Week 3', statusLabel: 'CURRENT' }));
+      mount('c-weeknav-preseason', h(DS.WeekNavigator, { weekLabel: 'Preseason', hideArrows: true }));
       mount('c-navtabs', h(DS.SegmentedToggle, {
         size: 'lg', value: 'lineups',
         options: [
@@ -407,29 +498,118 @@
         h(DS.DisciplineTag, { discipline: 'VT' }), h(DS.DisciplineTag, { discipline: 'UB' }), h(DS.DisciplineTag, { discipline: 'BB' }),
         h(DS.DisciplineTag, { discipline: 'FX' }), h(DS.DisciplineTag, { discipline: 'AA' })));
 
+      function CheckboxDemo() {
+        var state = React.useState(true);
+        return h(DS.Checkbox, { checked: state[0], onChange: state[1], label: 'I agree to the league rules' });
+      }
+      mount('c-checkbox', h(CheckboxDemo));
+
+      function TextFieldDemo() {
+        var state = React.useState('Precision Flyers');
+        return h(DS.TextField, { label: 'Team name', value: state[0], onChange: state[1], helperText: 'Shown on the leaderboard' });
+      }
+      mount('c-textfield', h(TextFieldDemo));
+
+      function TextFieldMultilineDemo() {
+        var state = React.useState('');
+        return h(DS.TextField, { label: 'What happened?', value: state[0], onChange: state[1], multiline: true, rows: 3, placeholder: 'Describe the issue…' });
+      }
+      mount('c-textfield-multiline', h(TextFieldMultilineDemo));
+
+      function SearchBarDemo() {
+        var state = React.useState('Bryant');
+        return h(DS.SearchBar, { value: state[0], onChange: state[1], placeholder: 'Search by name…' });
+      }
+      mount('c-searchbar', h(SearchBarDemo));
+
+      function DateTimePickerDemo() {
+        var state = React.useState(new Date(2026, 7, 15, 19, 30));
+        return h(DS.DateTimePicker, { label: 'Draft time', value: state[0], onChange: state[1] });
+      }
+      mount('c-datetimepicker', h(DateTimePickerDemo));
+
+      mount('c-card-flat', h(DS.Card, { elevation: 'flat' }, h(DS.Heading, { level: 3 }, 'Flat'), h(DS.Text, { size: 'body', tone: 'secondary' }, 'Border only, no shadow.')));
+      mount('c-card-raised', h(DS.Card, { elevation: 'raised' }, h(DS.Heading, { level: 3 }, 'Elite Squad League'), h(DS.Text, { size: 'body', tone: 'secondary' }, '10 teams · Standard scoring')));
+      mount('c-card-interactive', h(DS.Card, { elevation: 'raised', interactive: true }, h(DS.Heading, { level: 3 }, 'Precision Flyers'), h(DS.Text, { size: 'body', tone: 'secondary' }, 'Rank #2 · 412.85 pts')));
+
       mount('c-buttons', h(React.Fragment, null,
         h(DS.Button, { variant: 'primary' }, 'Save Lineup'),
         h(DS.Button, { variant: 'secondary' }, 'Import Last Week'),
         h(DS.Button, { variant: 'tertiary' }, 'Clear All')));
+      mount('c-actionbutton', h(DS.ActionButton, { icon: h(DS.PlusIcon, { size: 22 }), 'aria-label': 'Add gymnast' }));
+      mount('c-discordbutton', h(DS.SignInWithDiscordButton));
+
+      function ThemeToggleDemo() {
+        var state = React.useState('dark');
+        return h(DS.ThemeToggle, { theme: state[0], onToggle: state[1] });
+      }
+      mount('c-themetoggle', h(ThemeToggleDemo));
+
+      mount('c-tooltip', h(DS.Tooltip, { content: 'Draft opens Saturday at 7pm ET' }, h(DS.Button, { variant: 'secondary' }, 'Draft time')));
+
+      mount('c-calendarbutton', h(DS.AddToCalendarButton, {
+        event: {
+          title: 'Precision Flyers Draft',
+          description: 'Gymcord Fantasy live draft',
+          location: 'Discord (Gymcord)',
+          start: new Date(2026, 7, 15, 19, 30),
+          end: new Date(2026, 7, 15, 20, 30)
+        }
+      }));
+
       mount('c-loading', h(React.Fragment, null, h(DS.LoadingIndicator, { size: 'lg' }), h(DS.LoadingIndicator, { size: 'sm' })));
       mount('c-footer', h(DS.Footer, { version: 'v0.1.1' }));
       mount('global-feedback', h(DS.FeedbackButton, { currentPath: '/lineups', onSubmit: function () { return Promise.resolve(); } }));
+
+      function DialogDemo() {
+        var open = React.useState(false);
+        var message = React.useState('');
+        return h(React.Fragment, null,
+          h(DS.Button, { variant: 'primary', onClick: function () { open[1](true); } }, 'Open dialog'),
+          h(DS.Dialog, {
+            open: open[0],
+            onClose: function () { open[1](false); },
+            title: 'Report feedback or a bug',
+            actions: h(React.Fragment, null,
+              h(DS.Button, { variant: 'tertiary', onClick: function () { open[1](false); } }, 'Cancel'),
+              h(DS.Button, { variant: 'primary', onClick: function () { open[1](false); } }, 'Send'))
+          },
+            h('p', { style: { color: 'var(--text-secondary)', fontSize: 13, margin: 0 } }, 'Logged from /lineups'),
+            h(DS.TextField, { label: 'What happened?', value: message[0], onChange: message[1], multiline: true, rows: 4, placeholder: 'What happened? What did you expect instead?' })
+          )
+        );
+      }
+      mount('c-dialog', h(DialogDemo));
 
       var iconSwatch = function (bg, color, Icon) {
         return h('span', { className: 'icon-swatch', style: { background: bg, color: color } }, h(Icon, { size: 26 }));
       };
       mount('c-icons', h(React.Fragment, null,
         iconSwatch('#1c1c2e', '#a3a3bf', DS.HomeIcon),
-        iconSwatch('#1c1c2e', '#a3a3bf', DS.PlaneIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.AwayIcon),
         iconSwatch('#1c1c2e', '#fb923c', DS.InjuryIcon),
-        iconSwatch('#fb923c', '#0a0a13', DS.PauseIcon),
+        iconSwatch('#fb923c', '#0a0a13', DS.PauseCircleIcon),
         iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronLeftIcon),
         iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronRightIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronUpIcon),
         iconSwatch('#1c1c2e', '#a3a3bf', DS.ChevronDownIcon),
         iconSwatch('#22d3ee', '#0a0a13', DS.PeopleIcon),
         iconSwatch('#f5c542', '#0a0a13', DS.TrophyIcon),
         iconSwatch('#8b5cf6', '#f5f5fa', DS.SwapIcon),
-        iconSwatch('#3b82f6', '#f5f5fa', DS.AnalyticsIcon)));
+        iconSwatch('#3b82f6', '#f5f5fa', DS.AnalyticsIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.SearchIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.CloseIcon),
+        iconSwatch('#22d3ee', '#0a0a13', DS.CalendarIcon),
+        iconSwatch('#22d3ee', '#0a0a13', DS.ClockIcon),
+        iconSwatch('#22d3ee', '#0a0a13', DS.ClipboardTextIcon),
+        iconSwatch('#22d3ee', '#0a0a13', DS.PlusIcon),
+        iconSwatch('#34d399', '#0a0a13', DS.CheckIcon),
+        iconSwatch('#5865f2', '#ffffff', DS.DiscordIcon),
+        iconSwatch('rgba(10,14,20,.55)', '#f5f5fa', DS.MoonIcon),
+        iconSwatch('rgba(10,14,20,.55)', '#f5c542', DS.SunIcon),
+        iconSwatch('#8b5cf6', '#f5f5fa', DS.ChatIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.UserCircleIcon),
+        iconSwatch('#1c1c2e', '#a3a3bf', DS.CardsIcon)));
     })();
   </script>
 </body>

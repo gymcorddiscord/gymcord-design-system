@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AppHeader, type AppHeaderTab } from '../components/AppHeader/AppHeader'
+import { LoggedOutHeader } from '../components/LoggedOutHeader/LoggedOutHeader'
 import { SegmentedToggle } from '../components/SegmentedToggle/SegmentedToggle'
 import { Button } from '../components/Button/Button'
 import { AthleteTable, type AthleteTableRow } from '../components/AthleteTable/AthleteTable'
@@ -15,6 +16,31 @@ import { Text } from '../components/Typography/Text'
 import { DisciplineTag } from '../components/badges/DisciplineTag'
 import { LoadingIndicator } from '../components/LoadingIndicator/LoadingIndicator'
 import { Dropdown } from '../components/Dropdown/Dropdown'
+import { Checkbox } from '../components/Checkbox/Checkbox'
+import { TextField } from '../components/TextField/TextField'
+import { SearchBar } from '../components/SearchBar/SearchBar'
+import { ActionButton } from '../components/ActionButton/ActionButton'
+import { Card } from '../components/Card/Card'
+import { Tooltip } from '../components/Tooltip/Tooltip'
+import { DateTimePicker } from '../components/DateTimePicker/DateTimePicker'
+import { AddToCalendarButton } from '../components/AddToCalendarButton/AddToCalendarButton'
+import { SignInWithDiscordButton } from '../components/SignInWithDiscordButton/SignInWithDiscordButton'
+import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle'
+import { PlusIcon, StarIcon, GoatIcon, UnicornIcon, FlowerIcon, BooksIcon, PaletteIcon, SunIcon, MedalIcon, TrophyIcon, ButterflyIcon } from '../icons/Icons'
+import type { LeagueOption } from '../components/AppHeader/LeagueSwitcher'
+
+const LEAGUES: LeagueOption[] = [
+  { id: 'elite-squad', teamName: 'Precision Flyers', leagueName: 'Elite Squad League', icon: <StarIcon size={18} /> },
+  { id: 'goat-league', teamName: 'Chalk Legends', leagueName: 'GOAT League', icon: <GoatIcon size={18} /> },
+  { id: 'unicorn-cup', teamName: 'Magic Unicorns', leagueName: 'Unicorn Cup', icon: <UnicornIcon size={18} /> },
+  { id: 'garden-league', teamName: 'Bloom Squad', leagueName: 'Garden League', icon: <FlowerIcon size={18} /> },
+  { id: 'book-club', teamName: 'The Bookworms', leagueName: 'Scholars League', icon: <BooksIcon size={18} /> },
+  { id: 'art-league', teamName: 'Palette Pals', leagueName: 'Artists League', icon: <PaletteIcon size={18} /> },
+  { id: 'sunshine-league', teamName: 'Sun Chasers', leagueName: 'Sunshine League', icon: <SunIcon size={18} /> },
+  { id: 'medal-league', teamName: 'Podium Club', leagueName: 'Medal League', icon: <MedalIcon size={18} /> },
+  { id: 'champions-league', teamName: 'Top Contenders', leagueName: 'Champions League', icon: <TrophyIcon size={18} /> },
+  { id: 'butterfly-league', teamName: 'Wing Squad', leagueName: 'Butterfly League', icon: <ButterflyIcon size={18} /> }
+]
 
 const COLUMNS = [
   { key: 'VT', caption: '0/10' },
@@ -109,17 +135,53 @@ export function App() {
   const [metric, setMetric] = useState<'avg' | 'high' | 'last'>('avg')
   const [selected, setSelected] = useState<Record<string, Record<string, boolean>>>({})
   const [apparatus, setApparatus] = useState('vt')
+  const [agreed, setAgreed] = useState(true)
+  const [teamName, setTeamName] = useState('')
+  const [search, setSearch] = useState('')
+  const [draftDate, setDraftDate] = useState(new Date(2026, 7, 15, 19, 30))
+  const [devTheme, setDevTheme] = useState<'light' | 'dark'>('dark')
+  const [preseasonTab, setPreseasonTab] = useState<AppHeaderTab>('draft')
+  const [activeLeagueId, setActiveLeagueId] = useState('elite-squad')
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-0)' }}>
       <AppHeader
-        teamName="Precision Flyers"
-        leagueName="Elite Squad League"
+        leagues={LEAGUES}
+        activeLeagueId={activeLeagueId}
+        onLeagueChange={setActiveLeagueId}
         weekLabel="Week 3"
         weekStatusLabel="CURRENT"
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        theme={devTheme}
+        onThemeToggle={setDevTheme}
+        onLogOut={() => {}}
       />
+
+      <div style={{ padding: '24px 32px 0' }}>
+        <Text size="caption" tone="tertiary">Preseason variant:</Text>
+      </div>
+      <AppHeader
+        leagues={LEAGUES}
+        activeLeagueId={activeLeagueId}
+        onLeagueChange={setActiveLeagueId}
+        phase="preseason"
+        activeTab={preseasonTab}
+        onTabChange={setPreseasonTab}
+        theme={devTheme}
+        onThemeToggle={setDevTheme}
+        onLogOut={() => {}}
+      />
+
+      <div style={{ padding: '24px 32px 0' }}>
+        <Text size="caption" tone="tertiary">Standard variant:</Text>
+      </div>
+      <AppHeader phase="standard" theme={devTheme} onThemeToggle={setDevTheme} />
+
+      <div style={{ padding: '24px 32px 0' }}>
+        <Text size="caption" tone="tertiary">Logged-out variant:</Text>
+      </div>
+      <LoggedOutHeader theme={devTheme} onThemeToggle={setDevTheme} onLogIn={() => {}} onSignUp={() => {}} />
 
       <div style={{ padding: '24px 32px' }}>
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 16, marginBottom: 24 }}>
@@ -180,6 +242,42 @@ export function App() {
             { value: 'aa', label: 'All-Around' }
           ]}
         />
+      </div>
+
+      <div style={{ padding: '0 32px 32px', display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'flex-start' }}>
+        <Card elevation="raised" interactive style={{ width: 260 }}>
+          <Heading level={3}>Elite Squad League</Heading>
+          <Text size="body" tone="secondary">10 teams · Standard scoring</Text>
+        </Card>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <Checkbox checked={agreed} onChange={setAgreed} label="I agree to the league rules" />
+          <TextField label="Team name" value={teamName} onChange={setTeamName} helperText="Shown on the leaderboard" />
+        </div>
+
+        <SearchBar value={search} onChange={setSearch} placeholder="Search by name…" />
+
+        <ActionButton icon={<PlusIcon size={22} />} aria-label="Add gymnast" />
+
+        <Tooltip content="Draft opens Saturday at 7pm ET">
+          <Button variant="secondary">Hover me</Button>
+        </Tooltip>
+
+        <DateTimePicker label="Draft time" value={draftDate} onChange={setDraftDate} />
+
+        <AddToCalendarButton
+          event={{
+            title: 'Precision Flyers Draft',
+            description: 'Gymcord Fantasy live draft',
+            location: 'Discord — Gymcord',
+            start: draftDate,
+            end: new Date(draftDate.getTime() + 60 * 60 * 1000)
+          }}
+        />
+
+        <SignInWithDiscordButton />
+
+        <ThemeToggle theme={devTheme} onToggle={setDevTheme} />
       </div>
 
       <Footer version="v0.1.1" />
