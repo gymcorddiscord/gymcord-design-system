@@ -53,7 +53,6 @@ import {
   MagicWand,
   MoonStars,
   MusicNotes,
-  PaintBrush,
   PawPrint,
   ShootingStar,
   Snowflake,
@@ -285,10 +284,6 @@ export function MoonStarsIcon({ size = 18, ...props }: IconProps) {
 
 export function MusicNotesIcon({ size = 18, ...props }: IconProps) {
   return <MusicNotes size={size} weight="fill" {...props} />
-}
-
-export function PaintBrushIcon({ size = 18, ...props }: IconProps) {
-  return <PaintBrush size={size} weight="fill" {...props} />
 }
 
 export function PawPrintIcon({ size = 18, ...props }: IconProps) {
