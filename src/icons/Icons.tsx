@@ -35,7 +35,9 @@ import {
   Palette,
   Medal,
   Butterfly,
-  ArrowLineDown
+  ArrowLineDown,
+  Gear,
+  DotsSixVertical
 } from '@phosphor-icons/react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: number }
@@ -192,4 +194,13 @@ export function MedalIcon({ size = 18, ...props }: IconProps) {
 
 export function ButterflyIcon({ size = 18, ...props }: IconProps) {
   return <Butterfly size={size} weight="fill" {...props} />
+}
+
+export function GearIcon({ size = 18, ...props }: IconProps) {
+  return <Gear size={size} weight="bold" {...props} />
+}
+
+/** Vertical six-dot grip — drag handle for reorderable list/table rows. */
+export function DotsSixIcon({ size = 18, ...props }: IconProps) {
+  return <DotsSixVertical size={size} weight="bold" {...props} />
 }
