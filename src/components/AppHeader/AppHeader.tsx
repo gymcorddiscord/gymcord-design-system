@@ -26,7 +26,8 @@ export interface AppHeaderProps {
   logoHref?: string
   /** Every league/team the player is in — the header's `LeagueSwitcher` lets them switch. Not used in `phase="standard"`. */
   leagues?: LeagueOption[]
-  activeLeagueId?: string
+  /** `null` shows the switcher with a "Select a league" placeholder instead of a specific league. Omit (undefined) to hide the switcher entirely. */
+  activeLeagueId?: string | null
   onLeagueChange?: (id: string) => void
   /** Ignored during preseason — the week navigator shows "Preseason" instead. */
   weekLabel?: string
@@ -121,7 +122,7 @@ export function AppHeader({
     <header className="gds-app-header">
       <div className="gds-app-header__row">
         {logo}
-        {leagues && leagues.length > 0 && activeLeagueId ? (
+        {leagues && leagues.length > 0 && activeLeagueId !== undefined ? (
           <LeagueSwitcher leagues={leagues} activeLeagueId={activeLeagueId} onChange={onLeagueChange} />
         ) : null}
         <WeekNavigator
