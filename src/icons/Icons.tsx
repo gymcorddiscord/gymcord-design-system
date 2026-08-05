@@ -38,7 +38,34 @@ import {
   ArrowLineDown,
   Gear,
   DotsSixVertical,
-  Lock
+  Lock,
+  FastForward,
+  Checkerboard,
+  Coins,
+  Confetti,
+  Crown,
+  Detective,
+  DiceThree,
+  Exam,
+  Fire,
+  Gift,
+  Globe,
+  GraduationCap,
+  HandPeace,
+  MagicWand,
+  Megaphone,
+  Microphone,
+  MoonStars,
+  MusicNotes,
+  Package,
+  PaintBrush,
+  PawPrint,
+  Phone,
+  PianoKeys,
+  ShootingStar,
+  Siren,
+  Student,
+  YinYang
 } from '@phosphor-icons/react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: number }
@@ -208,4 +235,116 @@ export function DotsSixIcon({ size = 18, ...props }: IconProps) {
 
 export function LockIcon({ size = 18, ...props }: IconProps) {
   return <Lock size={size} weight="bold" {...props} />
+}
+
+export function FastForwardIcon({ size = 18, ...props }: IconProps) {
+  return <FastForward size={size} weight="fill" {...props} />
+}
+
+export function CheckerboardIcon({ size = 18, ...props }: IconProps) {
+  return <Checkerboard size={size} weight="bold" {...props} />
+}
+
+export function CoinsIcon({ size = 18, ...props }: IconProps) {
+  return <Coins size={size} weight="fill" {...props} />
+}
+
+export function ConfettiIcon({ size = 18, ...props }: IconProps) {
+  return <Confetti size={size} weight="fill" {...props} />
+}
+
+export function CrownIcon({ size = 18, ...props }: IconProps) {
+  return <Crown size={size} weight="fill" {...props} />
+}
+
+export function DetectiveIcon({ size = 18, ...props }: IconProps) {
+  return <Detective size={size} weight="fill" {...props} />
+}
+
+export function DiceThreeIcon({ size = 18, ...props }: IconProps) {
+  return <DiceThree size={size} weight="fill" {...props} />
+}
+
+export function ExamIcon({ size = 18, ...props }: IconProps) {
+  return <Exam size={size} weight="bold" {...props} />
+}
+
+export function FireIcon({ size = 18, ...props }: IconProps) {
+  return <Fire size={size} weight="fill" {...props} />
+}
+
+export function GiftIcon({ size = 18, ...props }: IconProps) {
+  return <Gift size={size} weight="fill" {...props} />
+}
+
+export function GlobeIcon({ size = 18, ...props }: IconProps) {
+  return <Globe size={size} weight="bold" {...props} />
+}
+
+export function GraduationCapIcon({ size = 18, ...props }: IconProps) {
+  return <GraduationCap size={size} weight="fill" {...props} />
+}
+
+export function HandPeaceIcon({ size = 18, ...props }: IconProps) {
+  return <HandPeace size={size} weight="fill" {...props} />
+}
+
+export function MagicWandIcon({ size = 18, ...props }: IconProps) {
+  return <MagicWand size={size} weight="fill" {...props} />
+}
+
+export function MegaphoneIcon({ size = 18, ...props }: IconProps) {
+  return <Megaphone size={size} weight="fill" {...props} />
+}
+
+export function MicrophoneIcon({ size = 18, ...props }: IconProps) {
+  return <Microphone size={size} weight="fill" {...props} />
+}
+
+export function MoonStarsIcon({ size = 18, ...props }: IconProps) {
+  return <MoonStars size={size} weight="fill" {...props} />
+}
+
+export function MusicNotesIcon({ size = 18, ...props }: IconProps) {
+  return <MusicNotes size={size} weight="fill" {...props} />
+}
+
+export function PackageIcon({ size = 18, ...props }: IconProps) {
+  return <Package size={size} weight="fill" {...props} />
+}
+
+export function PaintBrushIcon({ size = 18, ...props }: IconProps) {
+  return <PaintBrush size={size} weight="fill" {...props} />
+}
+
+export function PawPrintIcon({ size = 18, ...props }: IconProps) {
+  return <PawPrint size={size} weight="fill" {...props} />
+}
+
+export function PhoneIcon({ size = 18, ...props }: IconProps) {
+  return <Phone size={size} weight="fill" {...props} />
+}
+
+export function PianoKeysIcon({ size = 18, ...props }: IconProps) {
+  return <PianoKeys size={size} weight="fill" {...props} />
+}
+
+export function ShootingStarIcon({ size = 18, ...props }: IconProps) {
+  return <ShootingStar size={size} weight="fill" {...props} />
+}
+
+export function SirenIcon({ size = 18, ...props }: IconProps) {
+  return <Siren size={size} weight="fill" {...props} />
+}
+
+export function SparkleIcon({ size = 18, ...props }: IconProps) {
+  return <Sparkle size={size} weight="fill" {...props} />
+}
+
+export function StudentIcon({ size = 18, ...props }: IconProps) {
+  return <Student size={size} weight="fill" {...props} />
+}
+
+export function YinYangIcon({ size = 18, ...props }: IconProps) {
+  return <YinYang size={size} weight="bold" {...props} />
 }
