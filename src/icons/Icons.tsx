@@ -37,7 +37,8 @@ import {
   Butterfly,
   ArrowLineDown,
   Gear,
-  DotsSixVertical
+  DotsSixVertical,
+  Lock
 } from '@phosphor-icons/react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: number }
@@ -203,4 +204,8 @@ export function GearIcon({ size = 18, ...props }: IconProps) {
 /** Vertical six-dot grip — drag handle for reorderable list/table rows. */
 export function DotsSixIcon({ size = 18, ...props }: IconProps) {
   return <DotsSixVertical size={size} weight="bold" {...props} />
+}
+
+export function LockIcon({ size = 18, ...props }: IconProps) {
+  return <Lock size={size} weight="bold" {...props} />
 }
